@@ -19,10 +19,10 @@ public class EspecialidadeService {
   }
 
   public List<EspecialidadeConselhoDto> getEspecialidadePorConselho(Long conselhoId) {
-    Optional<List<EspecialidadeConselhoDto>> resultado = repository.consultaPorConselho(conselhoId);
+    List<EspecialidadeConselhoDto> resultado = repository.consultaPorConselhoDto(conselhoId);
     if (resultado.isEmpty()) {
-      throw new IllegalArgumentException("Não existem especialidades pertencentes a este convênio");
+      throw new IllegalArgumentException("Não existem especialidades pertencentes a este convenio");
     }
-    return resultado.get();
+    return resultado;
   }
 }
